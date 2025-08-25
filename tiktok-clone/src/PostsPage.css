@@ -2,16 +2,16 @@
 .posts-container {
   background: #fff;
   color: #161823;
-  min-height: 100vh;
   font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  padding: 20px;
+  width: 100%;
+  padding-top: 20px;
 }
 
 /* Profile Section */
 .profile-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 0 0 40px 0;
 }
 
 .profile-header {
