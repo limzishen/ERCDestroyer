@@ -1,9 +1,13 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import sample1 from "./assets/videos/sample1.mp4";
 import sample2 from "./assets/videos/sample2.mp4";
+import sample3 from "./assets/videos/sample3.mp4";
+import sample4 from "./assets/videos/sample4.mp4";
+import sample5 from "./assets/videos/sample5.mp4";
+import sample6 from "./assets/videos/sample6.mp4";
 
 const Feed: React.FC = () => {
-  const videos = useMemo(() => [sample1, sample2], []);
+  const videos = useMemo(() => [sample1, sample2, sample3, sample4, sample5, sample6], []);
   const [idx, setIdx] = useState<number>(0);
   const vidRef = useRef<HTMLVideoElement | null>(null);
 
