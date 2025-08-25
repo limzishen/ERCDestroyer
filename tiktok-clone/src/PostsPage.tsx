@@ -47,7 +47,7 @@ const PostsPage = () => {
       comments: '12',
       shares: '5',
       duration: '0:15',
-      title: 'Qi pao!'
+      title: ''
     }
   ];
 
