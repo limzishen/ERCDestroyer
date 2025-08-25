@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard.tsx";
 import Feed from "./Feed.tsx";
 
 const App: React.FC = () => {
