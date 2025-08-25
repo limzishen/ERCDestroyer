@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Dashboard.css";
+import PostsPage from "./PostsPage";
 
-function Sidebar() {
+function Sidebar({ activePage, setActivePage }) {
   return (
     <div className="sidebar">
       <button className="uploadButton">+ Upload</button>
       <div>
         <div className="sidebarSection">MANAGE</div>
-        <div className="sidebarItem">Home</div>
-        <div className="sidebarItem">Posts</div>
-        <div className="sidebarItem sidebarItemActive">Analytics</div>
+        <div 
+          className={`sidebarItem ${activePage === 'home' ? 'sidebarItemActive' : ''}`}
+          onClick={() => setActivePage('home')}
+        >
+          Home
+        </div>
+        <div 
+          className={`sidebarItem ${activePage === 'posts' ? 'sidebarItemActive' : ''}`}
+          onClick={() => setActivePage('posts')}
+        >
+          Posts
+        </div>
+        <div 
+          className={`sidebarItem ${activePage === 'analytics' ? 'sidebarItemActive' : ''}`}
+          onClick={() => setActivePage('analytics')}
+        >
+          Analytics
+        </div>
         <div className="sidebarItem">Comments</div>
       </div>
       <div>
@@ -121,13 +137,21 @@ function TimelineChart() {
 }
 
 export default function TikTokDashboard() {
+  const [activePage, setActivePage] = useState('analytics');
+
   return (
     <div className="container">
-      <Sidebar />
+      <Sidebar activePage={activePage} setActivePage={setActivePage} />
       <div className="content">
-        <Header />
-        <AnalyticsPanel />
-        <TimelineChart />
+        {activePage === 'posts' ? (
+          <PostsPage />
+        ) : (
+          <>
+            <Header />
+            <AnalyticsPanel />
+            <TimelineChart />
+          </>
+        )}
       </div>
     </div>
   );
