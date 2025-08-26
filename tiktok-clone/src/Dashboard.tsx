@@ -154,11 +154,11 @@ export default function TikTokDashboard() {
     <div className="container">
       <Sidebar activePage={activePage} setActivePage={setActivePage} />
       <div className="content">
-        <Header />
         {activePage === 'posts' ? (
           <PostsPage />
         ) : (
           <>
+            <Header />
             <AnalyticsPanel />
             <TimelineChart />
           </>
