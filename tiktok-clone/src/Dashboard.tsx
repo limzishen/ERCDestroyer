@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import "./Dashboard.css";
 import PostsPage from "./PostsPage";
 
-function Sidebar({ activePage, setActivePage }) {
+interface SidebarProps {
+  activePage: string;
+  setActivePage: (page: string) => void;
+}
+
+function Sidebar({ activePage, setActivePage }: SidebarProps) {
   return (
     <div className="sidebar">
       <button className="uploadButton">+ Upload</button>
@@ -84,7 +89,13 @@ function Header() {
   );
 }
 
-function AnalyticsCard({ title, value, delta }) {
+interface AnalyticsCardProps {
+  title: string;
+  value: string;
+  delta: string;
+}
+
+function AnalyticsCard({ title, value, delta }: AnalyticsCardProps) {
   return (
     <div className="analyticsCard">
       <div>{title}</div>
