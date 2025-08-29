@@ -8,6 +8,7 @@ import Feed from "./Feed.tsx";
 import LoginPage from "./pages/Login.tsx";
 import RegistrationPage from "./pages/Registration.tsx";
 import ProtectedRoute from "./components/ProtectedRoutes.tsx";
+import Notifications from './pages/Notifications.tsx';
 
 const theme = createTheme({
   palette: {
@@ -34,6 +35,14 @@ const App: React.FC = () => {
               element={
                 <ProtectedRoute>
                   <Dashboard/>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/notifications"
+              element={
+                <ProtectedRoute>
+                  <Notifications/>
                 </ProtectedRoute>
               }
             />
