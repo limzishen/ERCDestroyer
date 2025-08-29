@@ -136,7 +136,7 @@ function TimelineChart() {
   );
 }
 
-export default function TikTokDashboard() {
+export default function DeepAnalytics() {
   return (
     <div className="container">
       <Sidebar />
