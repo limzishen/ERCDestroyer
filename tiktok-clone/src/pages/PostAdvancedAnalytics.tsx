@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import './PostAdvancedAnalytics.css';
 
 // Mock Data
@@ -176,6 +177,11 @@ const PostAdvancedAnalytics: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
   const [searchParams] = useSearchParams();
   const urlPostId = searchParams.get('postId');
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   // Use postId from URL params or search params
   const finalPostId = postId || urlPostId;
