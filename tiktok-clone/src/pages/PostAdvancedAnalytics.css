@@ -1,0 +1,437 @@
+/* Post Advanced Analytics Container */
+.post-advanced-container {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: #fff;
+  min-height: 100vh;
+  color: #161823;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.post-advanced-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 20px;
+}
+
+.post-advanced-back-button {
+  background: none;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  color: #161823;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.post-advanced-back-button:hover {
+  background-color: #f5f5f5;
+}
+
+.post-advanced-page-title {
+  font-weight: 700;
+  font-size: 28px;
+  color: #161823;
+  margin: 0;
+}
+
+/* Video Header */
+.post-advanced-video-header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 30px;
+  padding: 24px;
+  background: #fafafb;
+  border-radius: 12px;
+  border: 1px solid #ececec;
+}
+
+.post-advanced-video-preview {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.post-advanced-video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-advanced-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.post-advanced-video-preview:hover .post-advanced-video-overlay {
+  opacity: 1;
+}
+
+.post-advanced-play-button {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #161823;
+  font-weight: 700;
+}
+
+.post-advanced-video-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post-advanced-video-title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #161823;
+  margin: 0 0 12px 0;
+}
+
+.post-advanced-video-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: #888;
+}
+
+.post-advanced-video-date,
+.post-advanced-video-duration {
+  font-weight: 500;
+}
+
+/* Metrics Grid */
+.post-advanced-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.post-advanced-metric-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid #ececec;
+  text-align: center;
+}
+
+.post-advanced-metric-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.post-advanced-metric-value {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.post-advanced-metric-subtitle {
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+}
+
+/* Charts Section */
+.post-advanced-charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.post-advanced-chart-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid #ececec;
+}
+
+.post-advanced-chart-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #161823;
+  margin: 0 0 20px 0;
+}
+
+/* Revenue Chart */
+.post-advanced-revenue-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.post-advanced-revenue-segment {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+}
+
+.post-advanced-segment-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.post-advanced-source-name {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+  text-align: left;
+}
+
+.post-advanced-source-amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  min-width: 80px;
+}
+
+.post-advanced-source-percentage {
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-align: right;
+  min-width: 40px;
+}
+
+/* View Tier Breakdown */
+.post-advanced-view-tier-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid #ececec;
+}
+
+.post-advanced-tier-chart {
+  margin-bottom: 20px;
+}
+
+.post-advanced-tier-bar {
+  display: flex;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.post-advanced-verified-segment {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  color: #161823;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.post-advanced-non-verified-segment {
+  background: linear-gradient(135deg, #0095e6, #4db5ff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.post-advanced-tier-label {
+  font-size: 11px;
+}
+
+.post-advanced-tier-value {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.post-advanced-tier-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.post-advanced-comparison-card {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #ececec;
+}
+
+.post-advanced-comparison-card.verified {
+  background: linear-gradient(135deg, #fff9e6, #fffdf0);
+  border-color: #ffd700;
+}
+
+.post-advanced-comparison-card.non-verified {
+  background: linear-gradient(135deg, #f0f8ff, #f8fcff);
+  border-color: #0095e6;
+}
+
+.post-advanced-comparison-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 12px 0;
+}
+
+.post-advanced-comparison-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Insights Section */
+.post-advanced-insights-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid #ececec;
+}
+
+.post-advanced-section-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #161823;
+  margin: 0 0 20px 0;
+}
+
+.post-advanced-insights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.post-advanced-insight-card {
+  padding: 20px;
+  background: #fafafb;
+  border-radius: 8px;
+  border-left: 4px solid #0095e6;
+}
+
+.post-advanced-insight-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #161823;
+  margin: 0 0 12px 0;
+}
+
+.post-advanced-insight-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.post-advanced-insight-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.post-advanced-insight-list li {
+  margin-bottom: 8px;
+}
+
+/* Error State */
+.post-advanced-error {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.post-advanced-error h2 {
+  font-weight: 700;
+  font-size: 24px;
+  color: #161823;
+  margin: 0 0 20px 0;
+}
+
+.post-advanced-error button {
+  background: #0095e6;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.post-advanced-error button:hover {
+  background: #0077cc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .post-advanced-container {
+    padding: 20px;
+  }
+  
+  .post-advanced-video-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .post-advanced-video-preview {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .post-advanced-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .post-advanced-charts-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .post-advanced-insights-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .post-advanced-tier-comparison {
+    grid-template-columns: 1fr;
+  }
+} 

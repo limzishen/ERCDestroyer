@@ -9,6 +9,10 @@ import LoginPage from "./pages/Login.tsx";
 import RegistrationPage from "./pages/Registration.tsx";
 import ProtectedRoute from "./components/ProtectedRoutes.tsx";
 import Notifications from './pages/Notifications.tsx';
+import AdvancedAnalytics from './pages/AdvancedAnalytics.tsx';
+import PostAnalytics from './pages/PostAnalytics.tsx';
+import PostAdvancedAnalytics from './pages/PostAdvancedAnalytics.tsx';
+
 
 const theme = createTheme({
   palette: {
@@ -46,8 +50,36 @@ const App: React.FC = () => {
                 </ProtectedRoute>
               }
             />
+
+            <Route
+              path="/advanced-analytics"
+              element={
+                <ProtectedRoute>
+                  <AdvancedAnalytics/>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/post-analytics/:postId"
+              element={
+                <ProtectedRoute>
+                  <PostAnalytics/>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/post-advanced-analytics/:postId"
+              element={
+                <ProtectedRoute>
+                  <PostAdvancedAnalytics/>
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/" element={<Navigate to="/dashboard" />} />
+            {<Route
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route
+
               path="/feed"
               element={
                 <ProtectedRoute>
