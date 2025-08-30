@@ -341,6 +341,12 @@ const PostAnalytics: React.FC = () => {
         >
           ← Back to Dashboard
         </button>
+        <button
+          className="post-analytics-advanced-button"
+          onClick={() => navigate(`/post-advanced-analytics/${finalPostId}`)}
+        >
+          Advanced Analytics
+        </button>
       </div>
 
       {/* Video Header */}
@@ -465,15 +471,7 @@ const PostAnalytics: React.FC = () => {
         )}
       </div>
 
-      {/* Advanced Analytics Button */}
-      <div className="post-analytics-advanced-section">
-        <button
-          className="post-analytics-advanced-button"
-          onClick={() => navigate(`/post-advanced-analytics/${finalPostId}`)}
-        >
-          Advanced Analytics
-        </button>
-      </div>
+
     </div>
   );
 };
