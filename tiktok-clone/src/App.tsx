@@ -4,7 +4,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import Dashboard from "./Dashboard.tsx";
-import Feed from "./Feed.tsx";
+//import Feed from "./Feed.tsx";
 import LoginPage from "./pages/Login.tsx";
 import RegistrationPage from "./pages/Registration.tsx";
 import ProtectedRoute from "./components/ProtectedRoutes.tsx";
@@ -76,9 +76,7 @@ const App: React.FC = () => {
               }
             />
             <Route path="/" element={<Navigate to="/dashboard" />} />
-            {<Route
-            <Route path="/" element={<Navigate to="/dashboard" />} />
-            <Route
+            {/* <Route
 
               path="/feed"
               element={
@@ -86,7 +84,7 @@ const App: React.FC = () => {
                   <Feed/>
                 </ProtectedRoute>
               }
-            />
+            /> */}
           </Routes>
         </Router>
       </AuthProvider>
