@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Dashboard.css";
-import PostsPage from "./PostsPage";
+import "./Notifications.css";
+import PostsPage from "../PostsPage";
 import { useNavigate } from "react-router-dom";
 
 
@@ -55,12 +55,13 @@ function Header() {
         style={{ height: 28 }}
       />
       <div className="tabs">
-        <span className="tabActive">Overview</span>
+        <span style={{ color: "#888" }} >Overview</span>
         <span style={{ color: "#888" }}>Content</span>
         <span style={{ color: "#888" }}>Viewers</span>
         <span style={{ color: "#888" }}>Followers</span>
         <span
-          style={{ color: "#888", cursor: "pointer" }}
+          className="tabActive"
+          style={{ cursor: "pointer" }}
           onClick={() => navigate("/notifications")}
         >
           Notifications
@@ -97,7 +98,7 @@ function Header() {
     </div>
   );
 }
-
+/*
 interface AnalyticsCardProps {
   title: string;
   value: string;
@@ -154,9 +155,88 @@ function TimelineChart() {
       </div>
     </div>
   );
+  <AnalyticsPanel />
+  <TimelineChart />
+}
+*/
+// NotificationIssue type
+interface NotificationIssue {
+  id: string;
+  title: string;
+  thumbnail: string;
+  visibility: string;
+  restriction: string;
+  date: string;
+  issue: string;
 }
 
-export default function TikTokDashboard() {
+// Example issues (replace with real data fetching)
+const issues: NotificationIssue[] = [
+  {
+    id: "1",
+    title: "Test Video 1",
+    thumbnail: "/thumb1.jpg", // local or URL path
+    visibility: "Unlisted",
+    restriction: "None",
+    date: "Aug 28, 2025",
+    issue: "Copyright claim detected",
+  },
+  {
+    id: "2",
+    title: "Test Video 2",
+    thumbnail: "/thumb2.jpg",
+    visibility: "Unlisted",
+    restriction: "Made for kids",
+    date: "Nov 3, 2023",
+    issue: "Video title violates guidelines",
+  },
+  // More sample issues...
+];
+
+// Notification Table styled for TikTok Studio
+function NotificationTable({ issues }: { issues: NotificationIssue[] }) {
+  return (
+    <div className="videoGrid">
+      {issues.map((issue) => (
+        <div className="videoCard" key={issue.id}>
+          <img src={issue.thumbnail} alt="" className="videoThumb" />
+          <div className="videoInfo">
+            <div className="videoTitle">{issue.title}</div>
+            <div className="videoMeta">
+              <span>{issue.visibility}</span> · <span>{issue.restriction}</span>
+            </div>
+            <div className="videoMeta">{issue.date}</div>
+            <div className="videoIssue">{issue.issue}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+// NotificationsPage component
+export default function Notifications() {
+  const [activePage, setActivePage] = useState('analytics');
+  return (
+    <div className="container">
+      <Sidebar activePage={activePage} setActivePage={setActivePage} />
+      <div className="content" style={{ marginTop: 36 }}>
+        {activePage === 'posts' ? (
+          <PostsPage />
+        ) : (
+          <>
+            <Header />
+          </>
+        )}
+        <h2 style={{ fontWeight: 700, marginBottom: 18 }}>Video Issues</h2>
+        <NotificationTable issues={issues} />
+      </div>
+    </div>
+  );
+}
+/*
+export default function Notifications() {
   const [activePage, setActivePage] = useState('analytics');
 
   return (
@@ -168,11 +248,9 @@ export default function TikTokDashboard() {
         ) : (
           <>
             <Header />
-            <AnalyticsPanel />
-            <TimelineChart />
           </>
         )}
       </div>
     </div>
   );
-}
+}*/
