@@ -2,13 +2,14 @@ import React from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import './PostAdvancedAnalytics.css';
+import danceThumbnail from "../assets/dance_thumbnail.jpeg"
 
 // Mock Data
 const postAdvancedData = {
   "post_1": {
     id: "post_1",
     title: "Viral Dance Trend",
-    thumbnail: "https://via.placeholder.com/400x600/ff2350/ffffff?text=Dance+Trend",
+    thumbnail: danceThumbnail,
     postedDate: "Apr 27, 2025, 11:28 AM",
     duration: "0:32",
     totalRevenue: 1247.30,
