@@ -99,7 +99,13 @@ function Header() {
         style={{ height: 28 }}
       />
       <div className="tabs">
-        <span className="tabActive">Overview</span>
+        <span
+          className="tabActive"
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate("/dashboard")}
+        >
+          Overview
+        </span>
         <span style={{ color: "#888" }}>Content</span>
         <span style={{ color: "#888" }}>Viewers</span>
         <span style={{ color: "#888" }}>Followers</span>
