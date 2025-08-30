@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './PostsPage.css';
+import productThumbnail from "./assets/product_review.jpeg"
 
 interface Post {
   id: string;
@@ -41,7 +42,7 @@ const PostsPage = () => {
   const posts: Post[] = [
     {
       id: '1',
-      thumbnail: 'https://via.placeholder.com/200x350/ff2350/ffffff?text=Video+1',
+      thumbnail: productThumbnail, 
       views: '1250',
       likes: '89',
       comments: '12',
