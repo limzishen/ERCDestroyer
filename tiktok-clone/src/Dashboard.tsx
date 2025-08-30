@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import PostsPage from "./PostsPage";
 import { useNavigate } from "react-router-dom";
 
+
 // Mock data for posts grid
 const postsData = [
   {
