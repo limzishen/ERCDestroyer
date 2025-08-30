@@ -12,6 +12,7 @@ import Notifications from './pages/Notifications.tsx';
 import AdvancedAnalytics from './pages/AdvancedAnalytics.tsx';
 import PostAnalytics from './pages/PostAnalytics.tsx';
 import PostAdvancedAnalytics from './pages/PostAdvancedAnalytics.tsx';
+import AdminTransactionPage from './pages/AdminTransactionPage.tsx'
 
 
 const theme = createTheme({
@@ -72,6 +73,14 @@ const App: React.FC = () => {
               element={
                 <ProtectedRoute>
                   <PostAdvancedAnalytics/>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/adminTransaction"
+              element={
+                <ProtectedRoute>
+                  <AdminTransactionPage/>
                 </ProtectedRoute>
               }
             />
