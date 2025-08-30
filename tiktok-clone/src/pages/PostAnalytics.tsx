@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import './PostAnalytics.css';
+import danceThumbnail from "../assets/dance_thumbnail.jpeg"
+import cookingThumbnail from "../assets/cooking_thumbnail.jpeg"
+
 
 // Mock Data
 const postAnalyticsData = {
   "post_1": {
     id: "post_1",
     title: "Viral Dance Trend",
-    thumbnail: "https://via.placeholder.com/400x600/ff2350/ffffff?text=Dance+Trend",
+    thumbnail: danceThumbnail, 
     postedDate: "Apr 27, 2025, 11:28 AM",
     duration: "0:32",
     metrics: {
@@ -48,7 +51,7 @@ const postAnalyticsData = {
   "post_2": {
     id: "post_2",
     title: "Cooking Tutorial",
-    thumbnail: "https://via.placeholder.com/400x600/00d4aa/ffffff?text=Cooking+Tutorial",
+    thumbnail: cookingThumbnail, 
     postedDate: "Apr 25, 2025, 2:15 PM",
     duration: "1:15",
     metrics: {
