@@ -11,6 +11,9 @@
 
 /* Header */
 .post-analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
 }
 
@@ -27,6 +30,23 @@
 
 .post-analytics-back-button:hover {
   background-color: #f5f5f5;
+}
+
+.post-analytics-advanced-button {
+  background: linear-gradient(135deg, #0095e6, #4db5ff);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-analytics-advanced-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 149, 230, 0.3);
 }
 
 /* Video Header */
@@ -482,31 +502,7 @@
   margin: 0;
 }
 
-/* Advanced Analytics Button */
-.post-analytics-advanced-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-  padding-top: 30px;
-  border-top: 1px solid #ececec;
-}
 
-.post-analytics-advanced-button {
-  background: linear-gradient(135deg, #0095e6, #4db5ff);
-  border: none;
-  border-radius: 8px;
-  padding: 16px 32px;
-  font-weight: 700;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.post-analytics-advanced-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 149, 230, 0.3);
-}
 
 /* Error State */
 .post-analytics-error {

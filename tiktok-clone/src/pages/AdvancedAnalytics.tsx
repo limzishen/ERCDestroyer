@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdvancedAnalytics.css';
 
@@ -32,79 +32,6 @@ const generalAnalytics = {
     shareRate: 0.015
   }
 };
-
-const postsAnalytics = [
-  {
-    id: "post_1",
-    title: "Viral Dance Trend",
-    totalViews: 850000,
-    verifiedViews: 280000,
-    nonVerifiedViews: 570000,
-    revenue: 1247.30,
-    revenueBreakdown: {
-      adRevenue: 892.40,
-      tips: 354.90
-    },
-    engagementRate: 0.12,
-    watchTime: 52.3,
-    postedDate: "2024-08-15",
-    videoThumbnail: "https://via.placeholder.com/300x400/ff2350/ffffff?text=Dance+Trend",
-    duration: "0:32"
-  },
-  {
-    id: "post_2", 
-    title: "Cooking Tutorial",
-    totalViews: 320000,
-    verifiedViews: 180000,
-    nonVerifiedViews: 140000,
-    revenue: 1580.75,
-    revenueBreakdown: {
-      adRevenue: 780.25,
-      brandDeals: 650.00,
-      tips: 150.50
-    },
-    engagementRate: 0.18,
-    watchTime: 78.6,
-    postedDate: "2024-08-20",
-    videoThumbnail: "https://via.placeholder.com/300x400/00d4aa/ffffff?text=Cooking+Tutorial",
-    duration: "1:15"
-  },
-  {
-    id: "post_3",
-    title: "Morning Routine",
-    totalViews: 520000,
-    verifiedViews: 220000,
-    nonVerifiedViews: 300000,
-    revenue: 980.45,
-    revenueBreakdown: {
-      adRevenue: 650.20,
-      tips: 330.25
-    },
-    engagementRate: 0.15,
-    watchTime: 65.8,
-    postedDate: "2024-08-18",
-    videoThumbnail: "https://via.placeholder.com/300x400/0095e6/ffffff?text=Morning+Routine",
-    duration: "0:45"
-  },
-  {
-    id: "post_4",
-    title: "Product Review",
-    totalViews: 180000,
-    verifiedViews: 120000,
-    nonVerifiedViews: 60000,
-    revenue: 2100.80,
-    revenueBreakdown: {
-      adRevenue: 450.30,
-      brandDeals: 1500.00,
-      tips: 150.50
-    },
-    engagementRate: 0.22,
-    watchTime: 89.2,
-    postedDate: "2024-08-22",
-    videoThumbnail: "https://via.placeholder.com/300x400/ffd700/000000?text=Product+Review",
-    duration: "2:30"
-  }
-];
 
 // Revenue Source Configuration
 const REVENUE_SOURCE_CONFIG = {
@@ -204,62 +131,7 @@ const ViewTierBreakdown = ({ verified, nonVerified }: {
   );
 };
 
-const PostsList = ({ posts }: { posts: typeof postsAnalytics }) => (
-  <div className="analytics-posts-container">
-    <h3 className="analytics-section-title">Individual Post Analytics</h3>
-    <div className="analytics-posts-grid">
-      {posts.map((post) => (
-        <div key={post.id} className="analytics-post-card">
-          <div className="analytics-video-preview">
-            <img 
-              src={post.videoThumbnail} 
-              alt={post.title}
-              className="analytics-video-thumbnail"
-            />
-            <div className="analytics-video-overlay">
-              <div className="analytics-play-button">▶</div>
-              <div className="analytics-video-duration">{post.duration}</div>
-            </div>
-          </div>
-          <div className="analytics-post-content">
-            <div className="analytics-post-header">
-              <h4 className="analytics-post-title">{post.title}</h4>
-              <span className="analytics-post-date">{post.postedDate}</span>
-            </div>
-            <div className="analytics-post-metrics">
-              <div className="analytics-metric-row">
-                <span>Total Views:</span>
-                <span>{post.totalViews.toLocaleString()}</span>
-              </div>
-              <div className="analytics-metric-row">
-                <span>Revenue:</span>
-                <span className="analytics-revenue">${post.revenue.toFixed(2)}</span>
-              </div>
-              <div className="analytics-metric-row">
-                <span>Engagement Rate:</span>
-                <span>{(post.engagementRate * 100).toFixed(1)}%</span>
-              </div>
-              <div className="analytics-metric-row">
-                <span>Watch Time:</span>
-                <span>{post.watchTime}s</span>
-              </div>
-            </div>
-            <div className="analytics-view-breakdown">
-              <div className="analytics-verified-indicator">
-                <span className="analytics-indicator-dot verified"></span>
-                <span>Verified: {post.verifiedViews.toLocaleString()}</span>
-              </div>
-              <div className="analytics-non-verified-indicator">
-                <span className="analytics-indicator-dot non-verified"></span>
-                <span>Non-Verified: {post.nonVerifiedViews.toLocaleString()}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-);
+
 
 const GeneralAnalytics = () => (
   <div className="analytics-general-content">
@@ -313,7 +185,6 @@ const GeneralAnalytics = () => (
 
 const AdvancedAnalytics: React.FC = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'general' | 'posts'>('general');
 
   return (
     <div className="analytics-container">
@@ -326,28 +197,9 @@ const AdvancedAnalytics: React.FC = () => {
         </button>
         <h1 className="analytics-page-title">Advanced Analytics</h1>
       </div>
-      
-      <div className="analytics-tab-navigation">
-        <button 
-          className={`analytics-tab-button ${activeTab === 'general' ? 'active' : ''}`}
-          onClick={() => setActiveTab('general')}
-        >
-          General Analytics
-        </button>
-        <button 
-          className={`analytics-tab-button ${activeTab === 'posts' ? 'active' : ''}`}
-          onClick={() => setActiveTab('posts')}
-        >
-          Posts Analytics
-        </button>
-      </div>
 
       <div className="analytics-content">
-        {activeTab === 'general' ? (
-          <GeneralAnalytics />
-        ) : (
-          <PostsList posts={postsAnalytics} />
-        )}
+        <GeneralAnalytics />
       </div>
     </div>
   );

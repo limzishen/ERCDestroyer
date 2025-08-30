@@ -177,6 +177,10 @@ function AnalyticsPanel() {
 }
 
 function TimelineChart() {
+  const [hoveredValue, setHoveredValue] = useState<number | null>(null);
+  const [hoveredDate, setHoveredDate] = useState<string | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
   const dates = [
     "Aug 16",
     "Aug 17",
@@ -186,16 +190,106 @@ function TimelineChart() {
     "Aug 21",
     "Aug 22",
   ];
+  
+  // Mock data for video views across 7 days
+  const videoViewsData = [800, 1200, 1800, 2200, 2400, 2600, 2800];
+  const maxViews = Math.max(...videoViewsData);
+  
+  const handleMouseMove = (event: React.MouseEvent<SVGSVGElement>) => {
+    const svg = event.currentTarget;
+    const rect = svg.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    
+    // Convert mouse position to data coordinates
+    const svgWidth = rect.width;
+    const dataIndex = Math.round(((x + 280) / 1150) * 6);
+    
+    if (dataIndex >= 0 && dataIndex < videoViewsData.length) {
+      const value = videoViewsData[dataIndex];
+      const date = dates[dataIndex];
+      setHoveredValue(value);
+      setHoveredDate(date);
+      setMousePosition({ x: event.clientX, y: event.clientY });
+    } else {
+      setHoveredValue(null);
+      setHoveredDate(null);
+    }
+  };
+  
+  const handleMouseLeave = () => {
+    setHoveredValue(null);
+    setHoveredDate(null);
+  };
+  
   return (
     <div className="chartSection">
-      <div className="chartLine">
-        {dates.map((date, idx) => (
-          <div
-            key={date}
-            className="chartDot"
-            style={{ left: `${(idx / (dates.length - 1)) * 99}%` }}
+      <h3 className="chartTitle">Total Video Views (7 Days)</h3>
+      <div className="chartContainer">
+        <svg 
+          width="100%" 
+          height="200" 
+          viewBox="0 0 600 200" 
+          className="chartSvg"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{ cursor: 'crosshair' }}
+        >
+          {/* Chart line spanning full width */}
+          <path
+            d={videoViewsData.map((value, index) => {
+              const x = -280 + (index / 6) * 1150;
+              const y = 180 - (value / maxViews) * 160;
+              return index === 0 ? `M ${x} ${y}` : `L ${x} ${y}`;
+            }).join(' ')}
+            fill="none"
+            stroke="#0095e6"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
-        ))}
+          
+          {/* Data points aligned with dates */}
+          {videoViewsData.map((value, index) => {
+            const x = -280 + (index / 6) * 1150;
+            const y = 180 - (value / maxViews) * 160;
+            return (
+              <circle
+                key={index}
+                cx={x}
+                cy={y}
+                r="4"
+                fill="#0095e6"
+                stroke="white"
+                strokeWidth="2"
+              />
+            );
+          })}
+        </svg>
+        
+        {/* Tooltip */}
+        {hoveredValue !== null && hoveredDate !== null && (
+          <div 
+            className="chart-tooltip"
+            style={{
+              position: 'fixed',
+              left: mousePosition.x + 10,
+              top: mousePosition.y - 40,
+              backgroundColor: '#161823',
+              color: 'white',
+              padding: '8px 12px',
+              borderRadius: '6px',
+              fontSize: '12px',
+              fontWeight: '600',
+              pointerEvents: 'none',
+              zIndex: 1000,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+            }}
+          >
+            <div>{hoveredDate}</div>
+            <div>{hoveredValue.toLocaleString()} views</div>
+          </div>
+        )}
       </div>
       <div className="chartLabels">
         {dates.map((date) => (
